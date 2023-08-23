@@ -9,7 +9,7 @@ import Header from './globals/Header'
 import Navigation from './globals/Navigation'
 
 export default buildConfig({
-	serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
+	serverURL: 'http://localhost:3000',
 	admin: {
 		user: Users.slug,
 	},
@@ -18,7 +18,10 @@ export default buildConfig({
 	typescript: {
 		outputFile: path.resolve(__dirname, 'payload-types.ts'),
 	},
-	cors: ['http://localhost:3000'],
+	cors: '*',
+	rateLimit: {
+		trustProxy: true,
+	},
 	plugins: [
 		FormBuilder({
 			fields: {
