@@ -6,6 +6,9 @@ const Header: GlobalConfig = {
 		de: 'Header',
 		ru: 'Заголовок',
 	},
+	access: {
+		read: () => true,
+	},
 	fields: [
 		{
 			name: 'link',
@@ -14,6 +17,7 @@ const Header: GlobalConfig = {
 				ru: 'ссылка в шапке',
 			},
 			type: 'text',
+			required: true,
 		},
 	],
 }

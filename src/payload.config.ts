@@ -6,15 +6,14 @@ import Posts from './collections/Posts'
 import Tags from './collections/Tags'
 import Users from './collections/Users'
 import Header from './globals/Header'
-import Navigation from './globals/Navigation'
 
 export default buildConfig({
-	serverURL: 'http://localhost:3000',
+	serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
 	admin: {
 		user: Users.slug,
 	},
 	collections: [Posts, Tags, Users, Media],
-	globals: [Header, Navigation],
+	globals: [Header],
 	typescript: {
 		outputFile: path.resolve(__dirname, 'payload-types.ts'),
 	},
